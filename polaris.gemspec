@@ -5,13 +5,29 @@
 
 Gem::Specification.new do |s|
   s.name = %q{polaris}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Shawn Anderson"]
   s.date = %q{2010-02-27}
   s.description = %q{A* pathfinding in Ruby, using C datastructures to speed things up.}
   s.email = %q{shawn42@gmail.com}
+  s.extra_rdoc_files = [
+    "README.txt"
+  ]
+  s.files = [
+    "README.txt",
+     "Rakefile",
+     "VERSION",
+     "lib/line_of_site.rb",
+     "lib/polaris.rb",
+     "lib/two_d_grid_location.rb",
+     "lib/two_d_grid_map.rb",
+     "polaris.gemspec",
+     "spec/helper.rb",
+     "spec/line_of_site_spec.rb",
+     "spec/polaris_spec.rb"
+  ]
   s.homepage = %q{http://github.com/shawn42/polaris}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
