@@ -18,11 +18,30 @@ rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'spec/rake/spectask'
-desc "Run all rspecs"
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.spec_files = FileList['spec/*_spec.rb']
+begin
+  require 'spec/rake/spectask'
+  desc "Run all rspecs"
+  Spec::Rake::SpecTask.new(:spec) do |t|
+    t.spec_files = FileList['spec/*_spec.rb']
+  end
+  task :default => :spec
+
+  desc "Run rcov rspecs"
+  Spec::Rake::SpecTask.new('rcov_rspec') do |t|
+    t.spec_files = FileList['spec/*_spec.rb']
+    t.rcov = true
+    t.rcov_opts = ['--exclude', 'examples']
+  end
+  task :default => :spec
+rescue LoadError
+  puts "please install rspec to run tests"
+  puts "install with gem install rspec"
 end
-task :default => :spec
+
+begin
+  require 'metric_fu'
+rescue LoadError
+  puts "metric_fu (or a dependency) not available. Install it with: sudo gem install metric_fu"
+end
 
 # vim: syntax=Ruby
