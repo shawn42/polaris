@@ -26,7 +26,7 @@ class Polaris
       
       current_element = open.pop
       @nodes_considered += 1
-      
+
       loc = current_element.location
       if @map.cost(loc,to) == 0
         path = []
@@ -37,13 +37,13 @@ class Polaris
 
         return path
       else
-        closed.push current_element.location, current_element
+        closed.push current_element.location.to_s, current_element
         @map.neighbors(loc).each do |next_door|
           el = PathElement.new(next_door,current_element)
-          next if closed.has_key? next_door
-          
+          next if closed.has_key? next_door.to_s
+
           if @map.blocked? next_door, unit_type
-            closed.push el.location, el
+            closed.push el.location.to_s, el
           else
             current_rating = current_element.cost_to + @map.cost(loc, next_door)
             
