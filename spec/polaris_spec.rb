@@ -1,6 +1,4 @@
 require File.join(File.dirname(__FILE__),'helper')
-require 'polaris'
-require 'two_d_grid_map'
 
 describe 'A new polaris' do
   before do
@@ -180,11 +178,13 @@ describe 'A new polaris' do
   it 'should return nil when the path does not exist' do
     from = TwoDGridLocation.new 0, 0
     to = TwoDGridLocation.new 2, 0
+    @pather.nodes_considered.should == 0
     
     # put up a wall
     @map.h.times do |i|
       @map.place TwoDGridLocation.new(1, i), "ME"
     end
+    # @map = TwoDGridMap.new 10, 20
     
     path = @pather.guide(from,to)
     path.should == nil

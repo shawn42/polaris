@@ -7,12 +7,19 @@ class TwoDGridLocation
   end
   
   def <=>(b)
-    ret = 1
-    if @x == b.x && @y == b.y  
-      ret = 0
+    if @x < b.x
+      -1
+    elsif @x > b.x
+      1
+    else
+      if @y < b.y
+        -1
+      elsif @y > b.y
+        1
+      else
+        0
+      end
     end
-    ret = -1 if @x <= b.x && @y < b.y
-    return ret
   end
   
   def to_s

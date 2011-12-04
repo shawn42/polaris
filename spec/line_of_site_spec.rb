@@ -1,6 +1,4 @@
 require File.join(File.dirname(__FILE__),'helper')
-require 'line_of_site'
-require 'two_d_grid_map'
 
 describe 'A new LineOfSite' do
   before do
