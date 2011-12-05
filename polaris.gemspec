@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary = %q{A* pathfinding in Ruby, using C datastructures to speed things up.}
   s.rubyforge_project = "polaris"
 
-  s.date = %q{2010-02-27}
+  s.date = %q{2011-12-04}
 
   s.files         = `git ls-files`.split("\n").reject{ |f| f[/^examples\//] || f[/^\./] }
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
