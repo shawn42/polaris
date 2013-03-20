@@ -12,7 +12,7 @@
 
 == INSTALL:
 
-* gem install poloaris
+* gem install polaris
 
 == LICENSE:
 
